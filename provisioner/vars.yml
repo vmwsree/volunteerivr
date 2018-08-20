@@ -1,0 +1,7 @@
+---
+project_name: voulnteerivr
+project_repo_url: git@github.com:vmwsree/volunteerivr.git
+project_repo_remote: origin
+repo_version: master
+pg_gis: True
+sass_with_django_compressor: True

@@ -1,0 +1,66 @@
+[vagrant]
+192.168.33.12
+
+[vagrant:vars]
+vm=1
+deploy_environment=vagrant
+project_namespace={{ project_name }}-{{ deploy_environment }}
+user=vagrant
+project_path=/home/vagrant/volunteerivr
+venv_path=/home/vagrant/venv
+django_requirements_file=requirements/development.txt
+django_settings="settings.development"
+use_letsencrypt=False
+pg_db=voulnteerivr
+pg_user=vagrant
+pg_password=vagrant
+domain_name=vagrant.voulnteerivr.com
+
+[dev]
+dev.voulnteerivr.com
+
+[dev:vars]
+vm=0
+deploy_environment=dev
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/volunteerivr
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=True
+letsencrypt_email=vmwsree@gmail.con
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=dev.voulnteerivr.com
+
+
+[qa]
+qa.voulnteerivr.com
+
+[qa:vars]
+vm=0
+deploy_environment=qa
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/volunteerivr
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=True
+letsencrypt_email=vmwsree@gmail.con
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=qa.voulnteerivr.com
+
+[production]
+voulnteerivr.com
+
+[production:vars]
+vm=0
+deploy_environment=prod
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/volunteerivr
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=True
+letsencrypt_email=vmwsree@gmail.con
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=voulnteerivr.com
